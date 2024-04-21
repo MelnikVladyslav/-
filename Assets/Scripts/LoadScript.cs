@@ -18,6 +18,7 @@ public class LoadScript : MonoBehaviour
     void Start()
     {
         slider.value = 0.0f;
+        PlayerPrefs.SetFloat("time", 55);
 
         StartCoroutine(AsyncLoading(1));
     }
