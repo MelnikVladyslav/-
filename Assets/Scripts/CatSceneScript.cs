@@ -1,14 +1,26 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Video;
 
 namespace Assets.Scripts
 {
     public class CatSceneScript : MonoBehaviour
     {
-        public void Next(int id)
+        public VideoPlayer videoPlayer; // Посилання на VideoPlayer
+        public string nextSceneName; // Ім'я наступної сцени, яку потрібно завантажити
+
+        void Start()
         {
-            SceneManager.LoadSceneAsync(id);
+            // Підписуємося на подію завершення відео
+            videoPlayer.loopPointReached += OnVideoEnd;
+        }
+
+        // Цей метод викликається, коли відео закінчується
+        void OnVideoEnd(VideoPlayer vp)
+        {
+            // Завантажуємо наступну сцену
+            SceneManager.LoadScene(nextSceneName);
         }
     }
 }

@@ -11,6 +11,16 @@ namespace Assets.Scripts
             SceneManager.LoadSceneAsync(id);
         }
 
+        public void Buy()
+        {
+            int c = PlayerPrefs.GetInt("coins");
+            if (c >= 10)
+            {
+                c -= 10;
+                SceneManager.LoadSceneAsync(3);
+            }
+        }
+
         public void Exit()
         {
             Application.Quit();

@@ -30,6 +30,18 @@ namespace Assets.Scripts
 
                     PlayerPrefs.SetInt("levelSuc", 0);
                 }
+                if (currentSceneName == "00 1")
+                {
+                    SceneManager.LoadSceneAsync(7);
+
+                    PlayerPrefs.SetInt("levelSuc", 1);
+                }
+                if (currentSceneName == "00 2")
+                {
+                    SceneManager.LoadSceneAsync(6);
+
+                    PlayerPrefs.SetInt("levelSuc", 2);
+                }
             }
         }
     }

@@ -9,6 +9,13 @@ namespace Assets.Scripts
         public float speed = 8f; // Швидкість руху гравця
         public Camera mainCamera;
         public Vector3 cameraOffset;
+        public float jumpForce = 3f;
+
+        private bool isGrounded; // Чи гравець на землі
+
+        public Transform groundCheck; // Точка для перевірки, чи на землі гравець
+        public float groundCheckRadius = 0.2f; // Радіус перевірки землі
+        public LayerMask groundLayer; // Шар, що відповідає за землю
 
         Rigidbody2D rb; // Посилання на компонент Rigidbody гравця
 
@@ -27,12 +34,23 @@ namespace Assets.Scripts
 
         void FixedUpdate()
         {
-            float moveHorizontal = Input.GetKey(KeyCode.D) ? 1f : Input.GetKey(KeyCode.A) ? -1f : 0f; // Рух по горизонталі (D - вправо, A - вліво)
-            float moveVertical = Input.GetKey(KeyCode.W) ? 1f : Input.GetKey(KeyCode.S) ? -1f : 0f; // Рух по вертикалі (W - вгору, S - вниз)
+            // Перевірка, чи гравець на землі
+            isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
 
-            Vector3 movement = new Vector3(moveHorizontal, 0f, moveVertical); // Створити вектор руху на основі вхідних значень
+            // Рух по горизонталі (D - вправо, A - вліво)
+            float moveHorizontal = Input.GetKey(KeyCode.D) ? 1f : Input.GetKey(KeyCode.A) ? -1f : 0f;
 
-            rb.AddForce(movement * speed); // Застосувати силу до гравця для зміни його швидкості
+            // Створити вектор руху на основі вхідних значень
+            Vector2 movement = new Vector2(moveHorizontal, rb.velocity.y);
+
+            // Додаємо рух по горизонталі
+            rb.velocity = new Vector2(moveHorizontal * speed, rb.velocity.y);
+
+            // Стрибок при натисканні пробілу, якщо гравець на землі
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse); // Застосувати силу для стрибка
+            }
         }
 
         void LateUpdate()

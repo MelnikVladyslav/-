@@ -19,6 +19,7 @@ namespace Assets.Scripts
         {
             if (collision.collider.CompareTag("Player"))
             {
+                coins = PlayerPrefs.GetInt("coins");
                 coins++;
                 txtCoins.text = coins.ToString();
                 PlayerPrefs.SetInt("coins", coins);

@@ -18,9 +18,8 @@ public class LoadScript : MonoBehaviour
     void Start()
     {
         slider.value = 0.0f;
-        PlayerPrefs.SetFloat("time", 55);
 
-        StartCoroutine(AsyncLoading(1));
+        StartCoroutine(AsyncLoading(2));
     }
 
     IEnumerator AsyncLoading(int id)

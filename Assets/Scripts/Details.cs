@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace Assets.Scripts
@@ -12,6 +13,11 @@ namespace Assets.Scripts
         private void Start()
         {
             currDets = PlayerPrefs.GetInt("currDets");
+            if (currDets >= 3)
+            {
+                SceneManager.LoadSceneAsync(6);
+                PlayerPrefs.SetInt("currDets", 0);
+            }
             txtDet.text = currDets.ToString();
             txtDet.text += "/3";
         }
