@@ -26,7 +26,7 @@ namespace Assets.Scripts
 
                 if (currentSceneName == "00")
                 {
-                    SceneManager.LoadSceneAsync(3);
+                    SceneManager.LoadSceneAsync(4);
 
                     PlayerPrefs.SetInt("levelSuc", 0);
                 }

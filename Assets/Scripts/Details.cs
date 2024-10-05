@@ -13,6 +13,7 @@ namespace Assets.Scripts
         {
             currDets = PlayerPrefs.GetInt("currDets");
             txtDet.text = currDets.ToString();
+            txtDet.text += "/3";
         }
 
         private void OnCollisionEnter2D(Collision2D collision)
@@ -21,6 +22,7 @@ namespace Assets.Scripts
             {
                 currDets++;
                 txtDet.text = currDets.ToString();
+                txtDet.text += "/3";
                 PlayerPrefs.SetInt("currDets", currDets);
                 Destroy(this.gameObject);
             }
