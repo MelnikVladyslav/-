@@ -21,15 +21,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels/00.unity
     guid: ace367e9bac787a4ba22a62b2c488036
   - enabled: 1
-    path: Assets/Scenes/Levels/00 1.unity
-    guid: 23dd81a4c0bda824a8481d78f6b6a2bc
-  - enabled: 1
-    path: Assets/Scenes/Levels/00 2.unity
-    guid: 643fe68212562244e81e2c281bd18ecd
-  - enabled: 1
-    path: Assets/Scenes/Levels/02.unity
-    guid: 49d64fffb82d5234baff8f7b6f7e7bcb
-  - enabled: 1
     path: Assets/Scenes/GoodCatScene.unity
     guid: 4836d7fc0a89727439fcd0b9277495a9
   - enabled: 1
