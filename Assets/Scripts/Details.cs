@@ -4,24 +4,24 @@ using UnityEngine.UI;
 
 namespace Assets.Scripts
 {
-    public class Money : MonoBehaviour
+    public class Details : MonoBehaviour
     {
-        private int coins = 0;
-        [SerializeField] private Text txtCoins;
+        private int currDets = 0;
+        [SerializeField] private Text txtDet;
 
         private void Start()
         {
-            coins = PlayerPrefs.GetInt("coins");
-            txtCoins.text = coins.ToString();
+            currDets = PlayerPrefs.GetInt("currDets");
+            txtDet.text = currDets.ToString();
         }
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
             if (collision.collider.CompareTag("Player"))
             {
-                coins++;
-                txtCoins.text = coins.ToString();
-                PlayerPrefs.SetInt("coins", coins);
+                currDets++;
+                txtDet.text = currDets.ToString();
+                PlayerPrefs.SetInt("currDets", currDets);
                 Destroy(this.gameObject);
             }
         }
