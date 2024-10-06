@@ -16,7 +16,6 @@ namespace Assets.Scripts
             if (currDets >= 3)
             {
                 SceneManager.LoadSceneAsync(6);
-                PlayerPrefs.SetInt("currDets", 0);
             }
             txtDet.text = currDets.ToString();
             txtDet.text += "/3";
@@ -26,7 +25,7 @@ namespace Assets.Scripts
         {
             if (collision.collider.CompareTag("Player"))
             {
-                currDets++;
+                currDets += 1;
                 txtDet.text = currDets.ToString();
                 txtDet.text += "/3";
                 PlayerPrefs.SetInt("currDets", currDets);

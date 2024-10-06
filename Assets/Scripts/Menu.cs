@@ -17,6 +17,7 @@ namespace Assets.Scripts
             if (c >= 10)
             {
                 c -= 10;
+                PlayerPrefs.SetInt("coins", c);
                 SceneManager.LoadSceneAsync(3);
             }
         }

@@ -14,6 +14,8 @@ namespace Assets.Scripts
         {
             // Підписуємося на подію завершення відео
             videoPlayer.loopPointReached += OnVideoEnd;
+            int a = 0;
+            PlayerPrefs.SetInt("currDets", a);
         }
 
         // Цей метод викликається, коли відео закінчується

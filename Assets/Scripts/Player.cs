@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -19,6 +20,8 @@ namespace Assets.Scripts
 
         Rigidbody2D rb; // Посилання на компонент Rigidbody гравця
 
+        List<GameObject> childObjects = new List<GameObject>();
+
         void Start()
         {
             rb = GetComponent<Rigidbody2D>(); // Отримати посилання на компонент Rigidbody
@@ -30,6 +33,16 @@ namespace Assets.Scripts
 
             // Встановити початкове зміщення камери відносно гравця
             cameraOffset = mainCamera.transform.position - transform.position;
+
+
+            for (int i = 0; i < transform.childCount; i++)
+            {
+                GameObject child = transform.GetChild(i).gameObject;
+                childObjects.Add(child);
+
+                // Вивести ім'я дочірнього об'єкта для перевірки
+                Debug.Log("Child " + i + ": " + child.name);
+            }
         }
 
         void FixedUpdate()
@@ -50,7 +63,19 @@ namespace Assets.Scripts
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse); // Застосувати силу для стрибка
+                
+                childObjects[0].gameObject.SetActive(false);
+                childObjects[1].gameObject.SetActive(true);
+
+                Invoke("Method2", 2f);
             }
+
+        }
+
+        void Method2()
+        {
+            childObjects[1].gameObject.SetActive(false);
+            childObjects[0].gameObject.SetActive(true);
         }
 
         void LateUpdate()

@@ -286,7 +286,7 @@ PlayerSettings:
   - m_BuildTarget: Standalone
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: 89340b1a0f9613a48a42c8c93dce4c11, type: 3}
+      m_Icon: {fileID: 2800000, guid: faa27ec5cad4c5f4da47b24fb9e0908c, type: 3}
       m_Width: 1024
       m_Height: 1024
       m_Kind: 0
@@ -324,6 +324,13 @@ PlayerSettings:
       m_Icon: {fileID: 0}
       m_Width: 16
       m_Height: 16
+      m_Kind: 0
+  - m_BuildTarget: 
+    m_Icons:
+    - serializedVersion: 2
+      m_Icon: {fileID: 2800000, guid: faa27ec5cad4c5f4da47b24fb9e0908c, type: 3}
+      m_Width: 128
+      m_Height: 128
       m_Kind: 0
   m_BuildTargetPlatformIcons:
   - m_BuildTarget: iPhone
